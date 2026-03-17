@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, Terminal, Zap, Code2, Cloud, Sparkles } from 'lucide-react'
+import { ChevronDown, Terminal, Zap, Code2, Cloud, Sparkles, Settings } from 'lucide-react'
 import type { Tool, OS, Category } from '../data/tools'
 import { ToolCard } from './ToolCard'
 
@@ -20,6 +20,7 @@ const ICON_MAP: Record<string, React.ComponentType<{ size?: number; color?: stri
   Code2,
   Cloud,
   Sparkles,
+  Settings,
 }
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -28,6 +29,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   runtimes: '#fbbf24',
   devops: '#f87171',
   ai: '#a78bfa',
+  dotfiles: '#22d3ee',
 }
 
 

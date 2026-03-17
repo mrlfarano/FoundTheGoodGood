@@ -123,6 +123,8 @@
   .code-flag { color: #a78bfa; }
   .code-string { color: #f87171; }
   .code-shebang { color: #fb923c; }
+  .code-config { color: #22d3ee; }
+  .code-config-body { color: #67e8f9; }
 }
 
 /* Noise overlay */

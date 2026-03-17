@@ -11,6 +11,8 @@ export interface Tool {
     linux: string | null
     windows: string | null
   }
+  /** When true, the script generator uses generateConfigScript() instead of the install command */
+  isConfig?: boolean
   links: {
     homepage: string
     github?: string
@@ -54,6 +56,12 @@ export const CATEGORIES: Category[] = [
     name: 'AI & VibeCoding',
     icon: 'Sparkles',
     description: 'AI-powered development tools',
+  },
+  {
+    id: 'dotfiles',
+    name: 'Shell Config & Dotfiles',
+    icon: 'Settings',
+    description: 'Generate optimized shell configs, aliases, and dotfiles',
   },
 ]
 
@@ -656,6 +664,74 @@ export const TOOLS: Tool[] = [
     },
     links: {
       homepage: 'https://lmstudio.ai',
+    },
+  },
+
+  // Shell Config & Dotfiles
+  {
+    id: 'optimized-zshrc',
+    name: 'Optimized .zshrc',
+    description: 'A clean .zshrc with Powerlevel10k instant prompt, consolidated PATH exports, OMZ plugins, lazy-loaded NVM, and tool integrations.',
+    category: 'dotfiles',
+    tags: ['zsh', 'dotfiles', 'config', 'shell', 'omz'],
+    isConfig: true,
+    install: {
+      macos: '__CONFIG_ZSHRC__',
+      linux: '__CONFIG_ZSHRC__',
+      windows: null,
+    },
+    links: {
+      homepage: 'https://github.com/ohmyzsh/ohmyzsh',
+    },
+  },
+  {
+    id: 'modern-aliases',
+    name: 'Modern Aliases',
+    description: 'A .zshrc_aliases file with modern tool aliases — eza for ls, bat for cat, ripgrep for grep, plus git, docker, k8s, and terraform shortcuts.',
+    category: 'dotfiles',
+    tags: ['aliases', 'dotfiles', 'shell', 'productivity'],
+    isConfig: true,
+    install: {
+      macos: '__CONFIG_ALIASES__',
+      linux: '__CONFIG_ALIASES__',
+      windows: null,
+    },
+    links: {
+      homepage: 'https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet',
+    },
+  },
+  {
+    id: 'git-delta-config',
+    name: 'Git Delta Config',
+    description: 'Configure git to use delta for beautiful syntax-highlighted diffs with side-by-side view, line numbers, and Dracula theme.',
+    category: 'dotfiles',
+    tags: ['git', 'delta', 'diff', 'config'],
+    isConfig: true,
+    install: {
+      macos: '__CONFIG_GIT_DELTA__',
+      linux: '__CONFIG_GIT_DELTA__',
+      windows: null,
+    },
+    links: {
+      homepage: 'https://dandavison.github.io/delta',
+      github: 'https://github.com/dandavison/delta',
+    },
+  },
+  {
+    id: 'trimmed-p10k',
+    name: 'Trimmed P10k Config',
+    description: 'A Powerlevel10k right-prompt config with only relevant segments: status, exec time, jobs, direnv, virtualenv, pyenv, nvm, k8s, terraform, aws, context.',
+    category: 'dotfiles',
+    tags: ['p10k', 'powerlevel10k', 'prompt', 'config'],
+    isConfig: true,
+    install: {
+      macos: '__CONFIG_P10K__',
+      linux: '__CONFIG_P10K__',
+      windows: null,
+    },
+    links: {
+      homepage: 'https://github.com/romkatv/powerlevel10k',
+      github: 'https://github.com/romkatv/powerlevel10k',
     },
   },
 ]

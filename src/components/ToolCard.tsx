@@ -15,6 +15,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   runtimes: '#fbbf24',
   devops: '#f87171',
   ai: '#a78bfa',
+  dotfiles: '#22d3ee',
 }
 
 export function ToolCard({ tool, isSelected, selectedOs, onToggle }: ToolCardProps) {
