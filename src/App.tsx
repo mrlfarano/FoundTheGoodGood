@@ -1,17 +1,46 @@
-import { useState, useMemo, useCallback } from 'react'
+import { useState, useMemo, useCallback, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Search, X, CheckSquare, Square, ChevronDown } from 'lucide-react'
+import { Search, X, CheckSquare, Square, ChevronDown, Link2 } from 'lucide-react'
 import { Header } from './components/Header'
 import { OsSelector } from './components/OsSelector'
 import { CategorySection } from './components/CategorySection'
 import { ToolCard } from './components/ToolCard'
 import { ScriptPreview } from './components/ScriptPreview'
+import { CopyButton } from './components/CopyButton'
 import { TOOLS, CATEGORIES, type OS } from './data/tools'
 
+const VALID_OS: OS[] = ['macos', 'linux', 'windows']
+
+/** Restore OS + tool selection from shareable URL params (?os=&tools=). */
+function readStateFromUrl(): { os: OS; tools: Set<string> } {
+  const params = new URLSearchParams(window.location.search)
+  const os = params.get('os') as OS | null
+  const validIds = new Set(TOOLS.map(t => t.id))
+  return {
+    os: os && VALID_OS.includes(os) ? os : 'macos',
+    tools: new Set(
+      (params.get('tools') ?? '').split(',').filter(id => validIds.has(id))
+    ),
+  }
+}
+
 export default function App() {
-  const [selectedOs, setSelectedOs] = useState<OS>('macos')
-  const [selectedTools, setSelectedTools] = useState<Set<string>>(new Set())
+  const [initialState] = useState(readStateFromUrl)
+  const [selectedOs, setSelectedOs] = useState<OS>(initialState.os)
+  const [selectedTools, setSelectedTools] = useState<Set<string>>(initialState.tools)
   const [searchQuery, setSearchQuery] = useState('')
+
+  // Keep the URL in sync so selections survive refresh and can be shared.
+  // Built by hand (tool ids are [a-z0-9-], OS is a fixed union) so commas
+  // aren't percent-encoded into %2C soup in the address bar.
+  useEffect(() => {
+    const parts: string[] = []
+    if (selectedOs !== 'macos') parts.push(`os=${selectedOs}`)
+    if (selectedTools.size > 0) {
+      parts.push(`tools=${[...selectedTools].sort().join(',')}`)
+    }
+    window.history.replaceState(null, '', parts.length ? `?${parts.join('&')}` : window.location.pathname)
+  }, [selectedOs, selectedTools])
 
   const toggleTool = useCallback((id: string) => {
     setSelectedTools(prev => {
@@ -171,6 +200,31 @@ export default function App() {
                   >
                     <span>{selectedTools.size}</span>
                     <span style={{ color: '#4f46e5', fontSize: '10px' }}>selected</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Share link — copies the URL, which encodes OS + selection */}
+              <AnimatePresence>
+                {selectedTools.size > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    className="flex items-center"
+                  >
+                    <CopyButton
+                      text={window.location.href}
+                      className="flex items-center gap-1.5 px-3 py-2.5 rounded-xl text-sm font-medium transition-all"
+                      style={{
+                        background: 'rgba(255,255,255,0.03)',
+                        border: '1px solid rgba(255,255,255,0.07)',
+                        color: '#94a3b8',
+                      }}
+                    >
+                      <Link2 size={14} />
+                      <span>Share</span>
+                    </CopyButton>
                   </motion.div>
                 )}
               </AnimatePresence>
