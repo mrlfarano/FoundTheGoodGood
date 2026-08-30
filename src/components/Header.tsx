@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { Sparkles, Github } from 'lucide-react'
+import { Sparkles } from 'lucide-react'
+import { GithubIcon } from './GithubIcon'
 
 export function Header() {
   return (
@@ -62,7 +63,7 @@ export function Header() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-          <Github size={14} />
+          <GithubIcon size={14} />
           <span>mrlfarano/FoundTheGoodGood</span>
         </motion.a>
       </motion.div>

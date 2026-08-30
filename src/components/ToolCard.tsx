@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { Check, ExternalLink, Github } from 'lucide-react'
+import { Check, ExternalLink } from 'lucide-react'
+import { GithubIcon } from './GithubIcon'
 import type { Tool, OS } from '../data/tools'
 
 interface ToolCardProps {
@@ -140,7 +141,7 @@ export function ToolCard({ tool, isSelected, selectedOs, onToggle }: ToolCardPro
               onMouseEnter={e => (e.currentTarget.style.color = '#64748b')}
               onMouseLeave={e => (e.currentTarget.style.color = '#334155')}
             >
-              <Github size={10} />
+              <GithubIcon size={10} />
               <span>GitHub</span>
             </a>
           )}
