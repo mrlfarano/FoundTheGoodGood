@@ -12,7 +12,7 @@ A curated developer tool installer — like [Ninite](https://ninite.com) but for
 
 ## What It Does
 
-1. Browse 40+ handpicked developer tools across 6 categories
+1. Browse 50+ handpicked developer tools across 6 categories
 2. Select the ones you want (or hit "Select All")
 3. Pick your OS — macOS, Linux, or Windows
 4. Copy or download the generated install script
@@ -24,9 +24,9 @@ A curated developer tool installer — like [Ninite](https://ninite.com) but for
 |---|---|
 | **Shell & Terminal** | Oh My Zsh, Powerlevel10k, zsh-autosuggestions, Starship, Atuin, Zoxide |
 | **CLI Essentials** | fzf, bat, eza, fd, ripgrep, delta, lazygit, jq, direnv |
-| **Dev Runtimes** | Homebrew, pyenv, nvm, mise |
+| **Dev Runtimes** | Homebrew, mise, pyenv, nvm |
 | **DevOps & Cloud** | Docker, kubectl, k9s, Helm, OpenTofu, AWS CLI, aws-vault, Granted, act, GitHub CLI |
-| **AI & VibeCoding** | Claude Code, Ollama, aider, mods, fabric, LM Studio |
+| **AI & VibeCoding** | Claude Code, Codex CLI, Gemini CLI, Cursor CLI, opencode, Crush, Goose, Ollama, aider, mods, fabric, LM Studio |
 | **Shell Config & Dotfiles** | Optimized .zshrc, modern aliases, git delta config, trimmed p10k prompt |
 
 ## Script Generation

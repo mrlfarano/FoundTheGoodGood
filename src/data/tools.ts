@@ -344,6 +344,22 @@ export const TOOLS: Tool[] = [
     },
   },
   {
+    id: 'mise',
+    name: 'mise',
+    description: 'The universal version manager — one tool for Node, Python, Ruby, Go, and more. Replaces nvm, pyenv, and asdf.',
+    category: 'runtimes',
+    tags: ['version-manager', 'node', 'python', 'ruby', 'universal'],
+    install: {
+      macos: 'brew install mise',
+      linux: 'curl https://mise.run | sh',
+      windows: 'winget install --id jdx.mise',
+    },
+    links: {
+      homepage: 'https://mise.jdx.dev',
+      github: 'https://github.com/jdx/mise',
+    },
+  },
+  {
     id: 'pyenv',
     name: 'pyenv',
     description: 'Simple Python version management. Switch between Python versions per-project.',
@@ -375,23 +391,6 @@ export const TOOLS: Tool[] = [
       github: 'https://github.com/nvm-sh/nvm',
     },
   },
-  {
-    id: 'mise',
-    name: 'mise',
-    description: 'The universal version manager — one tool to manage Node, Python, Ruby, Go, and more.',
-    category: 'runtimes',
-    tags: ['version-manager', 'node', 'python', 'ruby', 'universal'],
-    install: {
-      macos: 'brew install mise',
-      linux: 'curl https://mise.run | sh',
-      windows: 'winget install --id jdx.mise',
-    },
-    links: {
-      homepage: 'https://mise.jdx.dev',
-      github: 'https://github.com/jdx/mise',
-    },
-  },
-
   // DevOps & Cloud
   {
     id: 'docker',
@@ -578,13 +577,108 @@ export const TOOLS: Tool[] = [
     category: 'ai',
     tags: ['ai', 'claude', 'anthropic', 'cli', 'pair-programming'],
     install: {
-      macos: 'npm install -g @anthropic-ai/claude-code',
-      linux: 'npm install -g @anthropic-ai/claude-code',
+      macos: 'curl -fsSL https://claude.ai/install.sh | bash',
+      linux: 'curl -fsSL https://claude.ai/install.sh | bash',
       windows: 'npm install -g @anthropic-ai/claude-code',
     },
     links: {
       homepage: 'https://claude.ai/code',
       github: 'https://github.com/anthropics/claude-code',
+    },
+  },
+  {
+    id: 'codex',
+    name: 'Codex CLI',
+    description: 'OpenAI\'s open-source coding agent — reads your codebase, writes and refactors with you, right in the terminal.',
+    category: 'ai',
+    tags: ['ai', 'agent', 'openai', 'cli', 'coding'],
+    install: {
+      macos: 'npm install -g @openai/codex',
+      linux: 'npm install -g @openai/codex',
+      windows: 'npm install -g @openai/codex',
+    },
+    links: {
+      homepage: 'https://github.com/openai/codex',
+      github: 'https://github.com/openai/codex',
+    },
+  },
+  {
+    id: 'gemini-cli',
+    name: 'Gemini CLI',
+    description: 'Google\'s open-source AI agent for your terminal — code understanding, generation, and task automation.',
+    category: 'ai',
+    tags: ['ai', 'agent', 'google', 'gemini', 'cli'],
+    install: {
+      macos: 'npm install -g @google/gemini-cli',
+      linux: 'npm install -g @google/gemini-cli',
+      windows: 'npm install -g @google/gemini-cli',
+    },
+    links: {
+      homepage: 'https://github.com/google-gemini/gemini-cli',
+      github: 'https://github.com/google-gemini/gemini-cli',
+    },
+  },
+  {
+    id: 'cursor-cli',
+    name: 'Cursor CLI',
+    description: 'Cursor\'s AI coding agent in your terminal — the same agent that powers the editor, no IDE required.',
+    category: 'ai',
+    tags: ['ai', 'agent', 'cursor', 'cli', 'terminal'],
+    install: {
+      macos: 'curl -fsSL https://cursor.com/install | bash',
+      linux: 'curl -fsSL https://cursor.com/install | bash',
+      windows: null,
+    },
+    links: {
+      homepage: 'https://cursor.com',
+    },
+  },
+  {
+    id: 'opencode',
+    name: 'opencode',
+    description: 'The open-source AI coding agent built for the terminal. Provider-agnostic with a polished TUI.',
+    category: 'ai',
+    tags: ['ai', 'agent', 'open-source', 'cli', 'tui'],
+    install: {
+      macos: 'brew install anomalyco/tap/opencode',
+      linux: 'curl -fsSL https://opencode.ai/install | bash',
+      windows: 'scoop install opencode',
+    },
+    links: {
+      homepage: 'https://opencode.ai',
+      github: 'https://github.com/anomalyco/opencode',
+    },
+  },
+  {
+    id: 'crush',
+    name: 'Crush',
+    description: 'The AI coding agent from Charm — multi-model, session-based, and gorgeous in your terminal.',
+    category: 'ai',
+    tags: ['ai', 'agent', 'charm', 'cli', 'tui'],
+    install: {
+      macos: 'brew install charmbracelet/tap/crush',
+      linux: 'npm install -g @charmland/crush',
+      windows: 'npm install -g @charmland/crush',
+    },
+    links: {
+      homepage: 'https://github.com/charmbracelet/crush',
+      github: 'https://github.com/charmbracelet/crush',
+    },
+  },
+  {
+    id: 'goose',
+    name: 'Goose',
+    description: 'An open-source, extensible AI agent that automates engineering tasks, from dev chores to full runs.',
+    category: 'ai',
+    tags: ['ai', 'agent', 'automation', 'open-source'],
+    install: {
+      macos: 'curl -fsSL https://github.com/aaif-goose/goose/releases/download/stable/download_cli.sh | bash',
+      linux: 'curl -fsSL https://github.com/aaif-goose/goose/releases/download/stable/download_cli.sh | bash',
+      windows: 'Invoke-WebRequest -Uri "https://raw.githubusercontent.com/aaif-goose/goose/main/download_cli.ps1" -OutFile "download_cli.ps1"; .\\download_cli.ps1',
+    },
+    links: {
+      homepage: 'https://github.com/aaif-goose/goose',
+      github: 'https://github.com/aaif-goose/goose',
     },
   },
   {
@@ -606,17 +700,17 @@ export const TOOLS: Tool[] = [
   {
     id: 'aider',
     name: 'aider',
-    description: 'AI pair programming in your terminal. Code with Claude or GPT-4 directly in your editor.',
+    description: 'AI pair programming in your terminal — works with Claude, GPT, DeepSeek, and local models.',
     category: 'ai',
     tags: ['ai', 'pair-programming', 'gpt', 'claude', 'coding'],
     install: {
-      macos: 'pip install aider-chat',
-      linux: 'pip install aider-chat',
-      windows: 'pip install aider-chat',
+      macos: 'python -m pip install aider-install && aider-install',
+      linux: 'python -m pip install aider-install && aider-install',
+      windows: 'python -m pip install aider-install; aider-install',
     },
     links: {
       homepage: 'https://aider.chat',
-      github: 'https://github.com/paul-gauthier/aider',
+      github: 'https://github.com/Aider-AI/aider',
     },
   },
   {
@@ -642,9 +736,9 @@ export const TOOLS: Tool[] = [
     category: 'ai',
     tags: ['ai', 'patterns', 'productivity', 'llm'],
     install: {
-      macos: 'pip install fabric-ai',
-      linux: 'pip install fabric-ai',
-      windows: 'pip install fabric-ai',
+      macos: 'brew install fabric-ai',
+      linux: 'curl -fsSL https://raw.githubusercontent.com/danielmiessler/fabric/main/scripts/installer/install.sh | bash',
+      windows: 'iwr -useb https://raw.githubusercontent.com/danielmiessler/fabric/main/scripts/installer/install.ps1 | iex',
     },
     links: {
       homepage: 'https://github.com/danielmiessler/fabric',
@@ -659,7 +753,7 @@ export const TOOLS: Tool[] = [
     tags: ['ai', 'llm', 'local', 'desktop', 'gui'],
     install: {
       macos: 'brew install --cask lm-studio',
-      linux: 'curl -fsSL https://releases.lmstudio.ai/linux/x86/0.3.5/latest/LM_Studio-0.3.5.AppImage -o LM_Studio.AppImage && chmod +x LM_Studio.AppImage',
+      linux: null,
       windows: 'winget install --id ElementLabs.LMStudio',
     },
     links: {
